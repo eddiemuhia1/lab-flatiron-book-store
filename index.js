@@ -46,8 +46,12 @@ const bookStore = {
 const bookStoreTitle = document.querySelector('#header');
 bookStoreTitle.textContent = bookStore.name;
 
+const bookList = document.querySelector('#book-list');
 
-bookStore.books.forEach(book => {
+const exampleItem = document.querySelector("#delete-this")
+
+
+bookStore.books.forEach((book) => {
   const bookContainer = document.createElement('li');
   const bookTitle = document.createElement('h3');
   const bookAuthor = document.createElement('p');
@@ -56,8 +60,7 @@ bookStore.books.forEach(book => {
 
   bookTitle.textContent = book.title;
   bookAuthor.textContent = book.author;
-  bookImage.src = book.image; // Check if your object uses book.image or book.cover/book.imageUrl
-  bookImage.alt = book.title;
+  bookImage.src = book.imageUrl; 
 
 
   bookContainer.appendChild(bookTitle);
