@@ -42,34 +42,27 @@ const bookStore = {
         }
     ]
 }
-// 1. Target the specific ul element by ID
-const bookList = document.getElementById('book-list');
 
-// 2. Remove the existing placeholder element
-const placeholder = document.getElementById('delete-this');
-if (placeholder) {
-  placeholder.remove();
-}
+const bookStoreTitle = document.querySelector('#header');
+bookStoreTitle.textContent = bookStore.name;
 
-// 3. Loop through the books array
+
 bookStore.books.forEach(book => {
-  // Create elements
   const bookContainer = document.createElement('li');
   const bookTitle = document.createElement('h3');
   const bookAuthor = document.createElement('p');
   const bookImage = document.createElement('img');
 
-  // Set content & attributes
+
   bookTitle.textContent = book.title;
   bookAuthor.textContent = book.author;
   bookImage.src = book.image; // Check if your object uses book.image or book.cover/book.imageUrl
   bookImage.alt = book.title;
 
-  // Build the element hierarchy
+
   bookContainer.appendChild(bookTitle);
   bookContainer.appendChild(bookAuthor);
   bookContainer.appendChild(bookImage);
 
-  // Append to the list
   bookList.appendChild(bookContainer);
 });
